@@ -45,12 +45,14 @@ func _on_player_detection_body_exited(body):
 
 func _on_player_death_body_entered(body):
 	if body.name == "Player":
+		Game.Gold +=5
+		Utils.saveGame()
 		death()
 
 
 func _on_player_collision_body_entered(body):
 	if body.name == "Player":
-		body.health -=3
+		Game.playerHP -=3
 		death()
 
 

@@ -1,6 +1,8 @@
 extends Node2D
 
-
+func _ready():
+	Utils.loadGame()
+	Game.playerHP = 10
 
 func _on_quit_pressed():
 	get_tree().quit()
