@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvwer3jho51tg"]
+[gd_scene load_steps=10 format=3 uid="uid://bvwer3jho51tg"]
 
 [ext_resource type="Script" path="res://BG.gd" id="1_12b1f"]
 [ext_resource type="Texture2D" uid="uid://riq0bcd0ldar" path="res://sunny-land-phaser-project/sunny-land/assets/environment/tileset.png" id="1_dqbf2"]
@@ -407,6 +407,20 @@ texture = ExtResource("1_dqbf2")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_5fsip")
 
+[sub_resource type="GDScript" id="GDScript_m4xkm"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	text = \"HP: \" + str(get_node(\"../../PlayerNode/Player\").health)
+"
+
 [node name="World" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -472,3 +486,18 @@ position = Vector2(711, 332)
 
 [node name="Frog3" parent="Mobs" instance=ExtResource("6_qrsk1")]
 position = Vector2(817, 333)
+
+[node name="Frog4" parent="Mobs" instance=ExtResource("6_qrsk1")]
+position = Vector2(902, 329)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HP" type="Label" parent="UI"]
+offset_left = 26.0
+offset_top = 19.0
+offset_right = 153.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "HEALTH"
+script = SubResource("GDScript_m4xkm")

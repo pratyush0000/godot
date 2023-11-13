@@ -3,3 +3,5 @@ res://world.tscn
 res://bg.tscn
 res://Player/player.tscn
 res://frog.tscn
+res://Player/player.gd
+res://Frog.gd
